@@ -60,8 +60,6 @@ if __name__ == "__main__":
                 table.add_row(i['body'], i['user']['username'], i['user']['permalink_url'])
             console.print(table)
         if(args.cloudword):
-            #import spécifique
-            import scapy
             # Word tokenization
             from spacy.lang.en import English as spacyEnglish
             from spacy.lang.en.stop_words import STOP_WORDS as spacySTOP_WORDS
