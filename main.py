@@ -18,7 +18,7 @@ if __name__ == "__main__":
     #on lance rich
     console = richConsole()
 
-    console.print("¯\_(ツ)_/¯ par darcosion (https://github.com/darcosion)")
+    console.print("Debussy par darcosion (https://github.com/darcosion)")
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-u", "--url", type=str,
