@@ -88,6 +88,6 @@ Debussy par darcosion (https://github.com/darcosion)
 Ledit token s'obtient en utilisant les outils de développeur de ton navigateur (sous firefox, s'obtient avec la commande `F12`) :
 ![image de soundcloud](doc/flex.png)
 
-Pour que soundcloud génère un nouveau token, il suffit de réinitialiser la session avec lui. Pour cela, sous firefox, je recomamnde de faire ceci :
+Pour que soundcloud génère un nouveau token, il suffit de réinitialiser la session avec lui. Pour cela, sous firefox, je recommande de faire ceci :
 ![image de soundcloud](doc/1.png)
 ![image de soundcloud](doc/2.png)
