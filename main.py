@@ -35,13 +35,13 @@ if __name__ == "__main__":
                         help="exporter en CSV ou en JSON dans un fichier")
     args = parser.parse_args()
 
-    if(args.url and args.token):
-        userid = soundcloud.userid_info(args.url, args.token)
-        trackslog = soundcloud.listtracks(userid, args.token)
+    if(args.url):
+        userid, token = soundcloud.userid_info(args.url)
+        trackslog = soundcloud.listtracks(userid, token)
         #console.print(trackslog)
         listcom = []
         for i in trackslog:
-            listcom += soundcloud.listcomments(i, args.token)
+            listcom += soundcloud.listcomments(i, token)
 
 
         if(args.biggest_com):

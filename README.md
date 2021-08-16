@@ -11,8 +11,6 @@ Il possède quatre options pour cela :
  - cloudword qui liste les mots employés dans les commentaires par ordre d'importance
  - export qui permet d'exporter les données au format CSV ou JSON
 
-**Il nécessite un token que l'on peut récupérer en une manipulation sur soundcloud.com**
-
  ## installation
 
  `pip3 install -r requirements.txt`
@@ -82,13 +80,3 @@ Debussy par darcosion (https://github.com/darcosion)
 │ 1          │ The Pandea                                  │ https://soundcloud.com/thepandea                    │
 │ 1          │ CarlosG                                     │ https://soundcloud.com/user-23956215                │
 ```
-
-### Ajouter le token "id_client"
-
-Ledit token s'obtient en utilisant les outils de développeur de ton navigateur (sous firefox, s'obtient avec la commande `F12`) :
-![image de soundcloud](doc/flex.png)
-
-Pour que soundcloud génère un nouveau token, il suffit de réinitialiser la session avec lui. Pour cela, sous firefox, je recommande de faire ceci :
-
-![image de soundcloud](doc/1.png)  
-![image de soundcloud](doc/2.png)

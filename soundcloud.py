@@ -1,20 +1,37 @@
 #!/usr/bin/env python3
 
 #import globaux
-import requests, time
+import requests, time, re
 from bs4 import BeautifulSoup
 from urllib.error import HTTPError
 
 
-def userid_info(url, token):
+def userid_info(url):
     #requête web
     req = requests.get(url)
     #parsing html
     datahtml = BeautifulSoup(req.content, "html.parser")
     # récupère l'id
     userid = datahtml.find('meta', property="twitter:app:url:googleplay")['content'].split(':')[-1]
-
-    return userid
+    # liste les lib JS
+    listlibjs = list(datahtml.findAll('script', crossorigin=""))
+    listlibjs.reverse()
+    client_id = None
+    for i in listlibjs:
+        if(not i.has_attr('src')):
+            continue
+        try:
+            reqJS = requests.get(i['src'])
+            contentJS = reqJS.content
+            if(type(reqJS.content) is bytes):
+                contentJS = reqJS.content.decode("utf-8")
+            regex = re.search(r"client_id\:\"[aA-zZ0-9]*\"", contentJS)
+            if(regex):
+                client_id = regex.group(0)[11:-1]
+                break
+        except Exception as e:
+            raise e
+    return userid, client_id
 
 def listtracks(userid, token):
     url = f"https://api-v2.soundcloud.com/users/{userid}/tracks?representation=&client_id={token}&limit=20&offset=0&linked_partitioning=1&app_version=1628858614&app_locale=fr"
