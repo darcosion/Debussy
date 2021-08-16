@@ -5,10 +5,11 @@
 Debussy est un outil d'OSINT permettant notamment de récupérer les commentaires donné aux musiques d'un profile sur soundcloud.
 _C'est aussi un compositeur français du 19ème siècle ;)_
 
-Il possède trois options pour cela :
+Il possède quatre options pour cela :
  - biggest-com qui liste les profiles des gens par ordre de fréquence, la personne ayant commenté la première se retrouvant donc en premier
  - list-com qui liste l'intégralité des commentaires
  - cloudword qui liste les mots employés dans les commentaires par ordre d'importance
+ - export qui permet d'exporter les données au format CSV ou JSON
 
 **Il nécessite un token que l'on peut récupérer en une manipulation sur soundcloud.com**
 
@@ -28,18 +29,21 @@ Debussy propose une commande d'aide directe :
 ```bash
 $ python3 main.py -h
 Debussy par darcosion (https://github.com/darcosion)
-usage: main.py [-h] [-u URL] [-t TOKEN] [-b] [-l] [-c]
+usage: main.py [-h] [-u URL] [-t TOKEN] [-b] [-l] [-c] [-e EXPORT]
 
 optional arguments:
   -h, --help            show this help message and exit
   -u URL, --url URL     user à investiguer
   -t TOKEN, --token TOKEN
                         client_id token
-  -b, --biggest-com     people who comment the most
-  -l, --list-com        list of com
-  -c, --cloudword       cloud of words
+  -b, --biggest-com     personnes qui commentent le plus
+  -l, --list-com        list de com
+  -c, --cloudword       occurence de mots
+  -e EXPORT, --export EXPORT
+                        exporter en CSV ou en JSON dans un fichier
 ```
 
+note : la fonction d'export regarde automatiquement l'extension de fichier donné, si elle vois un `-e fichier.json`, elle exportera en json et si elle voit un `-e fichier.csv`, elle exportera en csv.
 
 Il s'utilise de la sorte :  
 
@@ -83,3 +87,7 @@ Debussy par darcosion (https://github.com/darcosion)
 
 Ledit token s'obtient en utilisant les outils de développeur de ton navigateur (sous firefox, s'obtient avec la commande `F12`) :
 ![image de soundcloud](doc/flex.png)
+
+Pour que soundcloud génère un nouveau token, il suffit de réinitialiser la session avec lui. Pour cela, sous firefox, je recomamnde de faire ceci :
+![image de soundcloud](doc/1.png)
+![image de soundcloud](doc/2.png)
