@@ -17,6 +17,9 @@ Il possède trois options pour cela :
  `pip3 install -r requirements.txt`
 
 note : `spacy` est une dépendance permettant de faire la partie "nuage de mots" (cloudword). Si vous n'utilisez pas cette fonctionnalité, pas besoin d'utiliser spacy.
+Pour utiliser spacy, il est aussi nécessaire de lancer la commande :
+`python3 -m spacy download en`
+qui va installer le lexique anglais de spacy.
 
 ## utilisation
 
