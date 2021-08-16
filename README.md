@@ -89,5 +89,6 @@ Ledit token s'obtient en utilisant les outils de développeur de ton navigateur 
 ![image de soundcloud](doc/flex.png)
 
 Pour que soundcloud génère un nouveau token, il suffit de réinitialiser la session avec lui. Pour cela, sous firefox, je recommande de faire ceci :
-![image de soundcloud](doc/1.png)
+
+![image de soundcloud](doc/1.png)  
 ![image de soundcloud](doc/2.png)
