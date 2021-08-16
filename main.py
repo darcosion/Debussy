@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #import globaux
-import argparse
+import argparse, csv, json
 
 
 # imports custom rich
@@ -26,11 +26,13 @@ if __name__ == "__main__":
     parser.add_argument("-t", "--token", type=str,
                         help="client_id token")
     parser.add_argument("-b", "--biggest-com", action='store_true',
-                        help="people who comment the most")
+                        help="personnes qui commentent le plus")
     parser.add_argument("-l", "--list-com", action='store_true',
-                        help="list of com")
+                        help="list de com")
     parser.add_argument("-c", "--cloudword", action='store_true',
-                        help="cloud of words")
+                        help="occurence de mots")
+    parser.add_argument("-e", "--export", type=str,
+                        help="exporter en CSV ou en JSON dans un fichier")
     args = parser.parse_args()
 
     if(args.url and args.token):
@@ -90,5 +92,17 @@ if __name__ == "__main__":
             for i in occurence_words:
                 table.add_row(str(i[0]), str(i[1]))
             console.print(table)
+        if(args.export):
+            if(args.export.split('.')[-1] == "json"):
+                #export au format JSON
+                with open(args.export, 'w') as jsonfile:
+                    json.dump(listcom, jsonfile)
+            if(args.export.split('.')[-1] == "csv"):
+                #export au format CSV
+                with open(args.export, 'w') as csvfile:
+                    writer = csv.DictWriter(csvfile, fieldnames=listcom[0].keys())
+                    writer.writeheader()
+                    for com in listcom:
+                        writer.writerow(com)
     else:
         console.print("Aucun utilisateur à investiguer")
