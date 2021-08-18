@@ -23,8 +23,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-u", "--url", type=str,
                         help="user à investiguer")
-    parser.add_argument("-t", "--token", type=str,
-                        help="client_id token")
     parser.add_argument("-b", "--biggest-com", action='store_true',
                         help="personnes qui commentent le plus")
     parser.add_argument("-l", "--list-com", action='store_true',

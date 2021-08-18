@@ -2,7 +2,7 @@
 
 ## Description & fonctionnalités
 
-Debussy est un outil d'OSINT permettant notamment de récupérer les commentaires donné aux musiques d'un profile sur soundcloud.
+Debussy est un outil d'OSINT permettant notamment de récupérer les commentaires donnés aux musiques d'un profile sur soundcloud.
 _C'est aussi un compositeur français du 19ème siècle ;)_
 
 Il possède quatre options pour cela :
